@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
     @blog.user_id = current_user.id
 
     respond_to do |format|
-      if @blog.save
+      if @blog.save!
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
@@ -70,6 +70,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :author)
+      params.require(:blog).permit(:title, :body, :user_id)
     end
 end
