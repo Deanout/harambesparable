@@ -467,3 +467,21 @@ I, [2016-11-15T07:03:23.095803 #21085]  INFO -- : worker=1 ready
 	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/unicorn:23:in `<main>'
 	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
 	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+/home/ec2-user/.rvm/gems/ruby-2.3.1/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:195:in `pid=': Already running on PID:21079 (or pid=/home/ec2-user/harambesparable/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:127:in `start'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/unicorn:23:in `load'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/unicorn:23:in `<main>'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+/home/ec2-user/.rvm/gems/ruby-2.3.1/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:195:in `pid=': Already running on PID:21079 (or pid=/home/ec2-user/harambesparable/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/gems/unicorn-5.2.0/lib/unicorn/http_server.rb:127:in `start'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/gems/unicorn-5.2.0/bin/unicorn:126:in `<top (required)>'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/unicorn:23:in `load'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/unicorn:23:in `<main>'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `eval'
+	from /home/ec2-user/.rvm/gems/ruby-2.3.1/bin/ruby_executable_hooks:15:in `<main>'
+I, [2016-11-15T16:32:38.698804 #21079]  INFO -- : reaped #<Process::Status: pid 21083 exit 0> worker=0
+I, [2016-11-15T16:32:38.698892 #21079]  INFO -- : reaped #<Process::Status: pid 21085 exit 0> worker=1
+I, [2016-11-15T16:32:38.698941 #21079]  INFO -- : master complete
+E, [2016-11-15T16:32:38.757465 #20457] ERROR -- : reaped #<Process::Status: pid 21079 exit 0> exec()-ed

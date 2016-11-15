@@ -1,20 +1,8 @@
-# set path to application
-app_dir = File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
-working_directory app_dir
+working_directory "/home/ec2-user/harambesparable"
+pid "/home/ec2-user/harambesparable/tmp/pids/unicorn.pid"
+stderr_path "/home/ec2-user/harambesparable/log/unicorn.log"
+stdout_path "/home/ec2-user/harambesparable/log/unicorn.log"
 
-
-# Set unicorn options
+listen "/tmp/unicorn.todo.sock"
 worker_processes 2
-preload_app true
 timeout 30
-
-# Set up socket location
-listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
-
-# Logging
-stderr_path "#{shared_dir}/log/unicorn.stderr.log"
-stdout_path "#{shared_dir}/log/unicorn.stdout.log"
-
-# Set master PID location
-pid "#{shared_dir}/pids/unicorn.pid"
