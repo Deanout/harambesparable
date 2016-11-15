@@ -1,10 +1,15 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
+  before_action :is_admin!, except: [:show, :index]
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all.paginate(page: params[:page])
+    @blogs.each do |blog|
+      if !User.exists? id: blog.user_id
+        blog.destroy!
+      end
+    end
   end
 
   # GET /blogs/1

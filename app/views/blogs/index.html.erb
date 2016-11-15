@@ -5,7 +5,7 @@
   <div class="panel">
     <div class="panel-heading">
       <h3><%= link_to blog.title, blog %></h3>
-      <h6><%= blog.created_at.strftime("%B, %d, %Y") %></h6>
+      <h6><%= "Posted by #{User.find(blog.user_id).username}, " %><%= blog.created_at.strftime("%B, %d, %Y") %></h6>
     </div>
     <div class="panel-body">
       <%= raw blog.body.truncate_words(250) %>

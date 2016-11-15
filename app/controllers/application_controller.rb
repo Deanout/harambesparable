@@ -16,6 +16,15 @@ class ApplicationController < ActionController::Base
     else
     end
   end
+  def is_admin!
+    if (current_user.nil?)
+      redirect_to new_user_session_path
+    elsif (!current_user.admin?)
+      redirect_to root_path, notice: "You ain't no admin. Run fool."
+    else
+    end
+end
 
+  helper_method :is_admin! 
   helper_method :is_admin?
 end
