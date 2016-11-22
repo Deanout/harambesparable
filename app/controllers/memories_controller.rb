@@ -5,6 +5,11 @@ class MemoriesController < ApplicationController
   # GET /memories.json
   def index
     @memories = Memory.all.paginate(page: params[:page])
+    @memories.each do |memory|
+      if !User.exists? id: memory.user_id
+        memory.destroy!
+      end
+    end
   end
 
   # GET /memories/1
@@ -25,7 +30,7 @@ class MemoriesController < ApplicationController
   # POST /memories.json
   def create
     @memory = Memory.new(memory_params)
-    @blog.user_id = current_user.id
+    @memory.user_id = current_user.id
 
     respond_to do |format|
       if @memory.save
