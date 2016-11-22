@@ -14,12 +14,11 @@
       <div class="container-fluid">
         <div class="pull-right">
           <%= link_to 'Read More', blog, class: 'btn btn-primary' %>
-          
+
           <% if current_user && is_admin? %>
             <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-warning', :'data-no-turbolink' => true %>
           <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           <% end %>
-          
         </div>
       </div>
     </div>

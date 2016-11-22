@@ -27,6 +27,10 @@ test:
 
 production:
   <<: *default
-  database: rails
-  username: ec2-user
+  database: harambes
+  adapter: postgresql
+  encoding: unicode
+  pool: 10
+  username: deanout
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  host: harambes.c51ezfqpiipt.us-east-2.rds.amazonaws.com
