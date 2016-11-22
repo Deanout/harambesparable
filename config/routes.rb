@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memories
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :blogs
   devise_for :users

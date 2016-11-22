@@ -1,0 +1,25 @@
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+	<div class="panel">
+		<div class="panel-heading">
+			<h3><%= link_to @memory.title, memories_path %></h3>
+			<h6><%= "Posted by #{User.find(@memory.user_id).username}, " %> <%= @memory.created_at.strftime("%B, %d, %Y") %></h6>
+		</div>
+		<div class="panel-body">
+			<%= raw @memory.body %>
+		</div>
+		<div class="panel-footer">
+			<div class="container-fluid">
+				<div class="pull-left">
+					<%= link_to 'All Memories', memories_path, class:'btn btn-primary'  %>
+				</div>
+				<div class="pull-right">
+
+					<%= link_to 'Back', :back, class:'btn btn-primary' %>
+					<% if current_user && is_admin? %>
+					<%= link_to 'Edit', edit_memory_path(@memory), class:'btn btn-warning', :'data-no-turbolink' => true %>
+					<%= link_to 'Delete', memory_path(@memory), method: :destroy, class:'btn btn-danger', data: { confirm: "Are you sure? There's no going back!"} %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,29 @@
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+  <h1 style="text-align:center;">Listing Memories</h1>
+  <%= will_paginate(@memories) %>
+  <% @memories.order("created_at DESC").each do |memory| %>
+  <div class="panel">
+    <div class="panel-heading">
+      <h3><%= link_to memory.title, memory %></h3>
+      <h6><%= "Posted by #{User.find(memory.user_id).username}, " %><%= memory.created_at.strftime("%B, %d, %Y") %></h6>
+    </div>
+    <div class="panel-body">
+      <%= raw memory.body.truncate_words(250) %>
+    </div>
+    <div class="panel-footer">
+      <div class="container-fluid">
+        <div class="pull-right">
+          <%= link_to 'Read More', memory, class: 'btn btn-primary' %>
+
+          <% if current_user && is_admin? %>
+            <%= link_to 'Edit', edit_memory_path(memory), class: 'btn btn-warning', :'data-no-turbolink' => true %>
+          <%= link_to 'Destroy', memory, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <%= will_paginate(@memories) %>
+</div>
+<br>

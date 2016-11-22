@@ -12,6 +12,7 @@ class User < ApplicationRecord
     :case_sensitive => false
   } # etc.
   has_many :blogs
+  has_many :memories
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
