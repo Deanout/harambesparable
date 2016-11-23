@@ -12,10 +12,18 @@
     </div>
     <div class="panel-footer">
       <div class="container-fluid">
+        <div class="pull-left">
+          <% if current_user && !(current_user.voted_for? memory) || current_user && (current_user.voted_down_on? memory) %>
+          <%= link_to "#{pluralize(memory.get_upvotes.size, 'Like')}", like_memory_path(memory), method: :get, notice: "Remembered...", class:'btn btn-primary' %>
+          <% elsif current_user && (current_user.likes memory) %>
+          <%= link_to "#{pluralize(memory.get_upvotes.size, 'Like')}", dislike_memory_path(memory), method: :get, notice: "Forgotten...", class:'btn btn-default' %>
+          <% end %>
+        </div>
         <div class="pull-right">
+
           <%= link_to 'Read More', memory, class: 'btn btn-primary' %>
 
-          <% if current_user && is_admin? %>
+          <% if current_user && memory.user_id == current_user %>
             <%= link_to 'Edit', edit_memory_path(memory), class: 'btn btn-warning', :'data-no-turbolink' => true %>
           <%= link_to 'Destroy', memory, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
           <% end %>

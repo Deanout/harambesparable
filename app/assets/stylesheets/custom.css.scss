@@ -1,0 +1,16 @@
+#alert_wrapper, #notice_wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1250;
+    background: rgba(179, 87, 255, 0.85);
+    .alert, .notice {
+      padding: 1.85rem 0;
+      text-align: center;
+      margin: 0;
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+}

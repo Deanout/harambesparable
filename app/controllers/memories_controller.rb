@@ -1,5 +1,5 @@
 class MemoriesController < ApplicationController
-  before_action :set_memory, only: [:show, :edit, :update, :destroy]
+  before_action :set_memory, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /memories
   # GET /memories.json
@@ -65,6 +65,16 @@ class MemoriesController < ApplicationController
       format.html { redirect_to memories_url, notice: 'Memory was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @memory.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @memory.downvote_by current_user
+    redirect_to :back
   end
 
   private

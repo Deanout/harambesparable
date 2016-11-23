@@ -13,6 +13,7 @@ class User < ApplicationRecord
   } # etc.
   has_many :blogs
   has_many :memories
+  acts_as_voter
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
