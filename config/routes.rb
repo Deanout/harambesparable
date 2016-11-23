@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+  mount ActionCable.server => '/cable'
   devise_for :users
   root 'pages#Home'
   get 'pages/About'
   get 'pages/Contact'
   get 'pages/Team'
+  get 'chat', to: 'rooms#show'
 
   get 'accounts', to: "accounts#index"
 
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
       get "dislike", to: "memories#downvote"
     end
   end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
