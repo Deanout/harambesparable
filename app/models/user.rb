@@ -13,6 +13,7 @@ class User < ApplicationRecord
   } # etc.
   has_many :blogs
   has_many :memories
+  has_many :messages
   acts_as_voter
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
