@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin!, except: [:show, :index]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :is_admin!, except: [:show, :index, :upvote, :downvote]
   # GET /blogs
   # GET /blogs.json
   def index
@@ -64,6 +64,24 @@ class BlogsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def upvote
+    @blog.upvote_by current_user
+    redirect_to :back
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+
+  def downvote
+    @blog.downvote_by current_user
+    redirect_to :back
+    respond_to do |format|
+      format.js
+      format.html
     end
   end
 

@@ -13,6 +13,14 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require bootsy
+//= require disqus_rails
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function scrollMe(){
+    $('a[data-reload="true"').on('click', function(e) {
+        window.location = $(e.target).attr('href');
+        window.location.reload(true);
+    });
+});

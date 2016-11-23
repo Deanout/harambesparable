@@ -25,6 +25,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'unicorn'
 gem 'bootsy'
 gem 'acts_as_votable'
+gem 'disqus_rails'
 #####
 # End Custom
 #####

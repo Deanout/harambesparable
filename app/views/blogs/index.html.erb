@@ -12,6 +12,10 @@
     </div>
     <div class="panel-footer">
       <div class="container-fluid">
+        <div class="pull-left">
+
+          <%= link_to "#{pluralize(blog.get_upvotes.size, 'Like')}", blog, method: :get, notice: "Remembered...", class:'btn btn-primary' %>
+        </div>
         <div class="pull-right">
           <%= link_to 'Read More', blog, class: 'btn btn-primary' %>
 
@@ -27,3 +31,11 @@
   <%= will_paginate(@blogs) %>
 </div>
 <br>
+<script>
+$(function(){
+    $('a[data-reload="true"').on('click', function(e) {
+        window.location = $(e.target).attr('href');
+        window.location.reload(true);
+    });
+});
+</script>

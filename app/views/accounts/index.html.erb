@@ -1,0 +1,13 @@
+<div class="well">
+	<div class="container-fluid">
+		<% @users.order("id ASC").each do |user| %>
+		<div class="col-lg-6 col-md-6 col-sm-6"style="border: solid;border-color:#b15315;padding:.5em;">
+			<div class="well">
+				<h6>[<%= user.id %>] <%= user.username %> <%= user.admin? ? " | Admin" : " " %> </h6>
+			  <p>Memories: <%=user.memories.count%></p>
+        <p>Blogs: <%= user.blogs.count %></p>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>

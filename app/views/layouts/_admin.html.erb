@@ -2,10 +2,11 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li style="max-height:100%;float">
-                
+
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "#{User.all.count} users." %> </li>
             <li><%= link_to 'New Blog', new_blog_path, :'data-no-turbolink' => true %></li>
         </ul>
         </div><!-- /.container-fluid -->

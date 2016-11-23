@@ -10,11 +10,15 @@
 		<div class="panel-footer">
 			<div class="container-fluid">
 				<div class="pull-left">
-					<%= link_to 'All Blogs', blogs_path, class:'btn btn-primary'  %>
-				</div>
+          <% if current_user && !(current_user.voted_for? @blog) || current_user && (current_user.voted_down_on? @blog) %>
+          <%= link_to "#{pluralize(@blog.get_upvotes.size, 'Like')}", like_blog_path(@blog), method: :get, notice: "Remembered...", class:'btn btn-primary', :data => { :reload => true } %>
+          <% elsif current_user && (current_user.likes @blog) %>
+          <%= link_to "#{pluralize(@blog.get_upvotes.size, 'Like')}", dislike_blog_path(@blog), method: :get, notice: "Forgotten...", class:'btn btn-default', :data => { :reload => true } %>
+          <% end %>
+        </div>
 				<div class="pull-right">
-					
-					<%= link_to 'Back', :back, class:'btn btn-primary' %>
+					<%= link_to 'All Blogs', blogs_path, class:'btn btn-primary'  %>
+					<%= link_to 'Back', :back, class:'btn btn-info' %>
 					<% if current_user && is_admin? %>
 					<%= link_to 'Edit', edit_blog_path(@blog), class:'btn btn-warning', :'data-no-turbolink' => true %>
 					<%= link_to 'Delete', blog_path(@blog), method: :destroy, class:'btn btn-danger', data: { confirm: "Are you sure? There's no going back!"} %>
@@ -23,3 +27,23 @@
 			</div>
 		</div>
 	</div>
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//harambes-me.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
