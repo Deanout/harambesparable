@@ -1,29 +1,17 @@
-# Change to match your CPU core count
-workers 1
-
-# Min and Max threads per worker
-threads 1, 6
-
-app_dir = File.expand_path("../..", __FILE__)
-shared_dir = "#{app_dir}/shared"
-
-# Default to production
-rails_env = ENV['RAILS_ENV'] || "production"
-environment rails_env
-
-# Set up socket location
-bind "unix://#{shared_dir}/sockets/puma.sock"
-
-# Logging
-stdout_redirect "#{shared_dir}/log/puma.stdout.log", "#{shared_dir}/log/puma.stderr.log", true
-
-# Set master PID and state locations
-pidfile "#{shared_dir}/pids/puma.pid"
-state_path "#{shared_dir}/pids/puma.state"
-activate_control_app
-
-on_worker_boot do
-  require "active_record"
-  ActiveRecord::Base.connection.disconnect! rescue ActiveRecord::ConnectionNotEstablished
-  ActiveRecord::Base.establish_connection(YAML.load_file("#{app_dir}/config/database.yml")[rails_env])
+def home_dir
+    '/home/ec2-user/harambesparable'
 end
+
+def path(p)
+    File.join(home_dir, p)
+end
+
+directory home_dir
+environment 'production'
+daemonize
+pidfile path('tmp/pids/puma.pid')
+state_path path('tmp/pids/puma.state')
+stdout_redirect path('log/puma.log'), path('log/error.puma.log'), true
+threads 0, 1
+bind "unix:///home/ec2-user/harambesparable/shared/sockets/puma.sock"
+activate_control_app

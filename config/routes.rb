@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  mount ActionCable.server => 'ws://cable.harambes.me'
-  match "/cable", to: ActionCable.server, via: [:get, :post]
+  #mount ActionCable.server => 'ws://cable.harambes.me'
+  #match "/cable", to: ActionCable.server, via: [:get, :post]
 
   devise_for :users
   root 'home#home'
   get 'pages/about'
   get 'pages/contact'
   get 'pages/team'
-  get 'chat', to: 'rooms#show'
+  #get 'chat', to: 'rooms#show'
 
   get 'accounts', to: "accounts#index"
 

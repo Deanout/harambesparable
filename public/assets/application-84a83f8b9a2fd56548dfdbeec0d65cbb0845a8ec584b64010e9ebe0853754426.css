@@ -9918,7 +9918,7 @@ a.list-group-item-danger.active:focus {
 .popover-title {
   border: none;
 }
-/* line 1, /home/ec2-user/harambesparable/app/assets/stylesheets/custom.css.scss */
+/* line 1, /home/ec2-user/harambesparable/app/assets/stylesheets/custom.scss */
 #alert_wrapper, #notice_wrapper {
   position: absolute;
   top: 0;
@@ -9926,7 +9926,7 @@ a.list-group-item-danger.active:focus {
   z-index: 1250;
   background: rgba(179, 87, 255, 0.85);
 }
-/* line 7, /home/ec2-user/harambesparable/app/assets/stylesheets/custom.css.scss */
+/* line 7, /home/ec2-user/harambesparable/app/assets/stylesheets/custom.scss */
 #alert_wrapper .alert, #alert_wrapper .notice, #notice_wrapper .alert, #notice_wrapper .notice {
   padding: 1.85rem 0;
   text-align: center;
@@ -9936,25 +9936,10 @@ a.list-group-item-danger.active:focus {
   color: white;
   letter-spacing: 1px;
 }
-/* line 5, /home/ec2-user/harambesparable/app/assets/stylesheets/rooms.scss */
-.chat_box {
-  flex-wrap: wrap;
-  height: 25em;
-  overflow-y: scroll;
-  padding-bottom: none;
-  margin-bottom: none;
-}
 
-/* line 13, /home/ec2-user/harambesparable/app/assets/stylesheets/rooms.scss */
-.texter {
-  height: 3em;
-  padding-top: none;
-  margin-top: none;
-}
-
-/* line 19, /home/ec2-user/harambesparable/app/assets/stylesheets/rooms.scss */
-.subforsub {
-  height: 3em;
+/* line 17, /home/ec2-user/harambesparable/app/assets/stylesheets/custom.scss */
+body {
+  padding-top: 3em;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -9968,6 +9953,7 @@ a.list-group-item-danger.active:focus {
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
 
 
 
@@ -19894,7 +19880,7 @@ a.list-group-item-danger.active:focus {
   border: none;
 }
 
-/* line 21, /home/ec2-user/harambesparable/app/assets/stylesheets/application.css.scss */
+/* line 22, /home/ec2-user/harambesparable/app/assets/stylesheets/application.css.scss */
 body {
   font-family: 'Raleway', sans-serif;
 }

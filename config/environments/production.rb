@@ -3,7 +3,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.public_file_server.enabled = true
-  config.action_cable.disable_request_forgery_protection = true
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -35,10 +35,7 @@ Rails.application.configure do
   config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Mount Action Cable outside main process or domain
-  config.action_cable.mount_path = 'ws://cable.harambes.me'
-  config.action_cable.url = 'ws://cable.harambes.me'
-  config.web_socket_server_url = "ws://cable.harambes.me"
-  config.action_cable.allowed_request_origins = [ 'http://0.0.0.0', /http:\/\/harambes.*/ ]
+
 
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.

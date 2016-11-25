@@ -9,3 +9,6 @@
 [5149] * Starting control server on unix:///tmp/puma-status-1480044810595-5149
 [5155] + Gemfile in context: /home/ec2-user/harambesparable/Gemfile
 [5149] - Worker 0 (pid: 5155) booted, phase: 0
+[5149] - Gracefully shutting down workers...
+[5149] === puma shutdown: 2016-11-25 03:35:41 +0000 ===
+[5149] - Goodbye!
