@@ -28,6 +28,8 @@ gem 'acts_as_votable'
 gem 'disqus_rails'
 gem 'socket.io-rails'
 gem "rack-timeout"
+gem "paperclip", "~> 5.0.0"
+gem 'ckeditor_rails'
 #####
 # End Custom
 #####
