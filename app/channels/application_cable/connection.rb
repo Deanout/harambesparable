@@ -9,12 +9,11 @@ module ApplicationCable
 
     protected
     def find_verified_user
-      user_id = request.headers['HTTP_AUTHORIZATION']
-      if verified_user = User.find_by(user_id)
-         verified_user
-      else
-         reject_unauthorized_connection
+        if verified_user = env['warden'].user
+          verified_user
+        else
+          reject_unauthorized_connection
+        end
       end
-    end
   end
 end

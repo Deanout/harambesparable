@@ -1,14 +1,11 @@
 class PagesController < ApplicationController
-  def Home
-    @blogs = Blog.order("created_at DESC").first(3)
+
+  def about
   end
 
-  def About
+  def contact
   end
 
-  def Contact
-  end
-
-  def Team
+  def team
   end
 end

@@ -1,0 +1,21 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chat_box {
+    flex-wrap: wrap;
+    height:25em;
+    overflow-y:scroll;
+    padding-bottom:none;
+    margin-bottom:none;
+}
+
+.texter {
+  height:3em;
+  padding-top:none;
+  margin-top:none;
+}
+
+.subforsub {
+  height:3em;
+}

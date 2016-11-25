@@ -26,6 +26,8 @@ gem 'unicorn'
 gem 'bootsy'
 gem 'acts_as_votable'
 gem 'disqus_rails'
+gem 'socket.io-rails'
+gem "rack-timeout"
 #####
 # End Custom
 #####

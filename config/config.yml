@@ -1,0 +1,8 @@
+redis: &redis
+  :url: redis://127.0.0.1:6379/0
+  :port: 6379
+  :timeout: 30
+  :inline: true
+production: *redis
+development: *redis
+test: *redis
