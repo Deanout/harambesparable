@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require bootsy
 //= require disqus_rails
+//= require action_cable
+//= require socket.io
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
