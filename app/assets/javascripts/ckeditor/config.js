@@ -1,4 +1,4 @@
 CKEDITOR.editorConfig = function( config )
 {
-config.extraPlugins = 'eqneditor';
+config.extraPlugins = 'codesnippet';
 };
