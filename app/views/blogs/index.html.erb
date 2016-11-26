@@ -1,5 +1,5 @@
 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-  <h1 style="text-align:center;">Listing Blogs</h1>
+  <h1 style="text-align:center;">Development Blog</h1>
   <%= will_paginate(@blogs) %>
   <% @blogs.order("created_at DESC").each do |blog| %>
   <% if current_user then blog.mark_as_read! :for => current_user; end %>
