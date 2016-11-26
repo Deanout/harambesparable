@@ -17,7 +17,6 @@
 //= require action_cable
 //= require socket.io
 //= require jquery_ujs
-//= require ckeditor/init
 //= require turbolinks
 //= require_tree .
 $(function scrollMe(){
