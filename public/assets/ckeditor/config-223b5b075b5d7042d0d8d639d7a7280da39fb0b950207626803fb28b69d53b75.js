@@ -1,1 +1,0 @@
-CKEDITOR.editorConfig=function(e){e.extraPlugins="codesnippet",e.filebrowserImageBrowseUrl="/ckeditor_assets/pictures",e.filebrowserImageUploadUrl="/ckeditor_assets/pictures"};
