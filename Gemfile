@@ -29,7 +29,7 @@ gem 'disqus_rails'
 gem 'socket.io-rails'
 gem "rack-timeout"
 gem "paperclip", "~> 5.0.0"
-gem 'ckeditor_rails'
+gem 'ckeditor', '4.1.3'
 #####
 # End Custom
 #####

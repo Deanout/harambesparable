@@ -1,9 +1,9 @@
 <%= simple_form_for(@blog) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs"data-no-turbolink>
     <%= f.input :title %>
-    <%= f.input :body, :class => 'ckeditor' %>
+    <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
 </div>
 
   <div class="form-actions">

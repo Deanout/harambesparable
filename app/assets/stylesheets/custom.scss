@@ -1,19 +1,44 @@
-#alert_wrapper, #notice_wrapper {
+#alert_wrapper,
+#notice_wrapper {
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 1250;
     background: rgba(179, 87, 255, 0.85);
-    .alert, .notice {
-      padding: 1.85rem 0;
-      text-align: center;
-      margin: 0;
-      font-size: 1.75rem;
-      font-weight: bold;
-      color: white;
-      letter-spacing: 1px;
+
+    .alert,
+    .notice {
+        padding: 1.85rem 0;
+        text-align: center;
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 1px;
     }
 }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-  padding-top: 3em;
+    font-family: 'Raleway', sans-serif;
+    /* Margin bottom by footer height */
+    margin-top: 3em;
+    margin-bottom: 4em;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 4em;
+    background-color: #4e5d6c;
+}
+#footer {
+  text-align: center;
+  margin-top: 1.3em;
 }

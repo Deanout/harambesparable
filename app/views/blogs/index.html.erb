@@ -13,8 +13,11 @@
     <div class="panel-footer">
       <div class="container-fluid">
         <div class="pull-left">
-
+          <% if current_user && (current_user.voted_on? blog) %>
+          <%= link_to "#{pluralize(blog.get_upvotes.size, 'Like')}", blog, method: :get, notice: "Remembered...", class:'btn btn-default' %>
+          <% else %>
           <%= link_to "#{pluralize(blog.get_upvotes.size, 'Like')}", blog, method: :get, notice: "Remembered...", class:'btn btn-primary' %>
+          <% end %>
         </div>
         <div class="pull-right">
           <%= link_to 'Read More', blog, class: 'btn btn-primary' %>

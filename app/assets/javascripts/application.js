@@ -17,12 +17,9 @@
 //= require action_cable
 //= require socket.io
 //= require jquery_ujs
-//= require ckeditor-jquery
+//= require ckeditor/init
 //= require turbolinks
 //= require_tree .
-$('.ckeditor').ckeditor({
-  // optional config
-});
 $(function scrollMe(){
     $('a[data-reload="true"').on('click', function(e) {
         window.location = $(e.target).attr('href');

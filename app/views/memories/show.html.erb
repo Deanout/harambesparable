@@ -2,7 +2,8 @@
 	<div class="panel">
 		<div class="panel-heading">
 			<h3><%= link_to @memory.title, memories_path %></h3>
-			<h6><%= "Posted by #{User.find(@memory.user_id).username}, " %> <%= @memory.created_at.strftime("%B, %d, %Y") %></h6>
+			<h6><%= "Posted by #{User.find(@memory.user_id).username}, " %>
+				<%= @memory.created_at.strftime("%B, %d, %Y") %></h6>
 		</div>
 		<div class="panel-body">
 			<%= raw @memory.body %>
@@ -10,14 +11,13 @@
 		<div class="panel-footer">
 			<div class="container-fluid">
 
-
 				<div class="pull-left">
-          <% if current_user && !(current_user.voted_for? @memory) || current_user && (current_user.voted_down_on? @memory) %>
-          <%= link_to "#{pluralize(@memory.get_upvotes.size, 'Like')}", like_memory_path(@memory), method: :get, notice: "Remembered...", class:'btn btn-primary' %>
-          <% elsif current_user && (current_user.likes @memory) %>
-          <%= link_to "#{pluralize(@memory.get_upvotes.size, 'Like')}", dislike_memory_path(@memory), method: :get, notice: "Forgotten...", class:'btn btn-default' %>
-          <% end %>
-        </div>
+					<% if current_user && !(current_user.voted_for? @memory) || current_user && (current_user.voted_down_on? @memory) %>
+					<%= link_to "#{pluralize(@memory.get_upvotes.size, 'Like')}", like_memory_path(@memory), method: :get, notice: "Remembered...", class:'btn btn-primary' %>
+					<% elsif current_user && (current_user.likes @memory) %>
+					<%= link_to "#{pluralize(@memory.get_upvotes.size, 'Like')}", dislike_memory_path(@memory), method: :get, notice: "Forgotten...", class:'btn btn-default' %>
+					<% end %>
+				</div>
 				<div class="pull-right">
 					<%= link_to 'All Memories', memories_path, class:'btn btn-primary'  %>
 					<%= link_to 'Back', :back, class:'btn btn-info' %>
@@ -30,22 +30,27 @@
 		</div>
 	</div>
 	<div id="disqus_thread"></div>
+</div>
+
 	<script>
 
-	/**
+		/**
 	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-	/*
+		/*
 	var disqus_config = function () {
 	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
 	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 	};
 	*/
-	(function() { // DON'T EDIT BELOW THIS LINE
-	var d = document, s = d.createElement('script');
-	s.src = '//harambes-me.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
+		(function () { // DON'T EDIT BELOW THIS LINE
+			var d = document,
+				s = d.createElement('script');
+			s.src = '//harambes-me.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', + new Date());
+			(d.head || d.body).appendChild(s);
+		})();
 	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	<noscript>Please enable JavaScript to view the
+		<a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+	</noscript>

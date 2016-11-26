@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
     end
 end
 
-  helper_method :is_admin! 
+  helper_method :is_admin!
   helper_method :is_admin?
 end

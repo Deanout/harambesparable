@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+  mount Ckeditor::Engine => '/ckeditor'
   #mount ActionCable.server => 'ws://cable.harambes.me'
   #match "/cable", to: ActionCable.server, via: [:get, :post]
 
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
   root 'home#home'
   get 'pages/about'
   get 'pages/contact'
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
   #get 'chat', to: 'rooms#show'
 
   get 'accounts', to: "accounts#index"
-
   resources :blogs do
     member do
       get "like", to: "blogs#upvote"

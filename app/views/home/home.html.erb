@@ -1,77 +1,17 @@
 <%= stylesheet_link_tag params[:controller] %>
-<div class="jumbotron col-lg-6 static-text">
-    <h1 class="col-lg-10 col-lg-offset-1" style="text-align:center;">Welcome To The Official Page For Harambe's Parable</h1>
-    <div class="col-lg-10 col-lg-offset-1">
-        <p style="text-align:justify">Austin gluten-free sustainable, jianbing whatever tacos etsy pickled kogi meggings raw denim man braid farm-to-table typewriter kale chips. Polaroid man braid offal, distillery ethical hoodie cronut mumblecore migas
-            meggings ugh kogi venmo waistcoat art party. Kale chips taxidermy street art narwhal, before they sold out artisan organic readymade bushwick etsy vaporware. Venmo swag trust fund kickstarter whatever austin air plant hella DIY disrupt. Artisan
-            meggings austin vinyl listicle farm-to-table. Vegan tofu meggings pickled iPhone knausgaard mustache, bespoke master cleanse leggings church-key ethical. Pinterest kombucha synth, humblebrag microdosing meh paleo.
-            <br><br>
-            1234 Poke quinoa brunch VHS jean shorts. Neutra meggings fam iceland af drinking vinegar. Lyft biodiesel photo booth forage, XOXO cred neutra. Meh godard bushwick craft beer migas, artisan pug paleo fam. Meditation meggings mlkshk 8-bit, sustainable
-            sartorial chia you probably haven't heard of them knausgaard. Mumblecore truffaut before they sold out retro tbh. Enamel pin copper mug keffiyeh, leggings wolf photo booth biodiesel bitters offal master cleanse freegan synth whatever.</p>
-        <br>
-        <%= link_to 'Learn More', pages_about_path, class: 'btn btn-primary btn-lg'%>
-    </div>
-</div>
-<div class="jumbotron col-lg-4 col-lg-offset-1 mem-text">
-    <h1 class="col-lg-10 col-lg-offset-1" style="text-align:center;">Recent Memories</h1>
-    <% @memories = Memory.last(4).reverse %>
-    <% @memories.each do |memory| %>
-    <div class="panel-heading">
-        <h3><%= link_to  memory.title, memory %></h3>
-        <h6><%= "Posted by #{User.find(memory.user_id).username}, " %><%= memory.created_at.strftime("%B, %d, %Y") %></h6>
-    </div>
-    <div class="panel-body"style="text-align:justify">
-        <%= raw memory.body.truncate_words(60) %>
-    </div>
-    <% end %>
-</div>
-
-<div class="jumbotron col-lg-10 blog-text">
-
-    <div class="jumbotron col-lg-5 col-lg-offset-1">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3><%= link_to  @blogs[0].title, @blogs[0] %></h3>
-                <h6><%= "Posted by #{User.find(@blogs[0].user_id).username}, " %><%= @blogs[0].created_at.strftime("%B, %d, %Y") %></h6>
-            </div>
-            <div class="panel-body"style="text-align:justify">
-                <%= raw @blogs[0].body.truncate_words(350) %>
-            </div>
-            <div class="panel-footer">
-                <div class="container-fluid">
-                    <div class="pull-right">
-                        <%= link_to 'Read More', @blogs[0], class: 'btn btn-primary' %>
-                        <% if current_user && is_admin? %>
-                        <%= link_to 'Edit', edit_blog_path(@blogs[0]), class: 'btn btn-warning', :'data-no-turbolink' => true %>
-                        <%= link_to 'Destroy', @blogs[0], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
+<div class="jumbotron col-lg-12 static-text">
+    <div class="container-fluid">
+        <h1 class="col-lg-10 col-lg-offset-1" style="text-align:center;">Welcome To The Official Page For Harambe's Parable</h1>
+        <div class="col-lg-10 col-lg-offset-1">
+            <p style="text-align:justify">Austin gluten-free sustainable, jianbing whatever tacos etsy pickled kogi meggings raw denim man braid farm-to-table typewriter kale chips. Polaroid man braid offal, distillery ethical hoodie cronut mumblecore migas
+                meggings ugh kogi venmo waistcoat art party. Kale chips taxidermy street art narwhal, before they sold out artisan organic readymade bushwick etsy vaporware. Venmo swag trust fund kickstarter whatever austin air plant hella DIY disrupt. Artisan
+                meggings austin vinyl listicle farm-to-table. Vegan tofu meggings pickled iPhone knausgaard mustache, bespoke master cleanse leggings church-key ethical. Pinterest kombucha synth, humblebrag microdosing meh paleo.
+                <br><br>
+                1234 Poke quinoa brunch VHS jean shorts. Neutra meggings fam iceland af drinking vinegar. Lyft biodiesel photo booth forage, XOXO cred neutra. Meh godard bushwick craft beer migas, artisan pug paleo fam. Meditation meggings mlkshk 8-bit, sustainable
+                sartorial chia you probably haven't heard of them knausgaard. Mumblecore truffaut before they sold out retro tbh. Enamel pin copper mug keffiyeh, leggings wolf photo booth biodiesel bitters offal master cleanse freegan synth whatever.</p>
+            <br>
+            <%= link_to 'Learn More', pages_about_path, class: 'btn btn-primary btn-lg pull-left'%>
+            <%= link_to 'Blog', pages_about_path, class: 'btn btn-primary btn-lg pull-right'%>
         </div>
     </div>
-
-    <div class="jumbotron col-lg-5 col-lg-offset-1">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3><%= link_to @blogs[1].title, @blogs[1] %></h3>
-                <h6><%= "Posted by #{User.find(@blogs[1].user_id).username}, " %><%= @blogs[1].created_at.strftime("%B, %d, %Y") %></h6>
-            </div>
-            <div class="panel-body"style="text-align:justify">
-                <%= raw @blogs[1].body.truncate_words(350) %>
-            </div>
-            <div class="panel-footer">
-                <div class="container-fluid">
-                    <div class="pull-right">
-                        <%= link_to 'Read More', @blogs[1], class: 'btn btn-primary' %>
-                        <% if current_user && is_admin? %>
-                        <%= link_to 'Edit', edit_blog_path(@blogs[1]), class: 'btn btn-warning', :'data-no-turbolink' => true %>
-                        <%= link_to 'Destroy', @blogs[1], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>

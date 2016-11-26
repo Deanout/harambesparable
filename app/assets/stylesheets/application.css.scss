@@ -14,11 +14,18 @@
  *= stub "home"
  *= require_self
  *= require bootsy
- 
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
-  font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    /* Margin bottom by footer height */
+    margin-top: 3em;
+    margin-bottom: 4em;
 }
