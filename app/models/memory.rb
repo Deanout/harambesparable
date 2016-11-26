@@ -4,4 +4,5 @@ class Memory < ApplicationRecord
 	validates :body,  :presence => true
   self.per_page = 10
   acts_as_votable
+  acts_as_readable :on => :created_at
 end

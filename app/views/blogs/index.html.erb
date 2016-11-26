@@ -2,10 +2,11 @@
   <h1 style="text-align:center;">Listing Blogs</h1>
   <%= will_paginate(@blogs) %>
   <% @blogs.order("created_at DESC").each do |blog| %>
+  <% if current_user then blog.mark_as_read! :for => current_user; end %>
   <div class="panel">
     <div class="panel-heading">
       <h3><%= link_to blog.title, blog %></h3>
-      <h6><%= "Posted by #{User.find(blog.user_id).username}, " %><%= blog.created_at.strftime("%B, %d, %Y") %></h6>
+      <h6><%= "Posted by #{User.find(blog.user_id).username}, " %><%= blog.created_at.strftime("%B, %d, %Y") %> | <%= link_to blog.title, blog_path(blog, :anchor => "disqus_thread")%></h6>
     </div>
     <div class="panel-body">
       <%= raw blog.body.truncate_words(250) %>
@@ -31,7 +32,10 @@
     </div>
   </div>
   <% end %>
-  <%= will_paginate(@blogs) %>
+  <div id="infinite-scrolling">
+      <%= will_paginate(@blogs) %>
+  </div>
+
 </div>
 <br>
 <script>
@@ -41,4 +45,8 @@ $(function(){
         window.location.reload(true);
     });
 });
+</script>
+<script>
+window.DISQUSWIDGETS = undefined;
+$.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
 </script>

@@ -1,13 +1,16 @@
-<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-    <h1 style="text-align:center;">Listing Memories</h1>
-    <%= will_paginate(@memories) %>
-    <div id="my-posts">
-        <% @memories.order("created_at DESC").each do |memory| %>
+<header style="border-bottom-style: solid; border-width: 1px">
+    Page:<%= @memories.current_page %>/<%=@memories.total_pages %>
+</header>
+<div class="container-fluid">
+    <div id="the-pins">
+        <% @memories.each do |memory| %>
         <% if current_user then memory.mark_as_read! :for => current_user; end %>
         <div class="panel">
             <div class="panel-heading">
                 <h3><%= link_to memory.title, memory_path(memory)%></h3>
-                <h6><%= "Posted by #{User.find(memory.user_id).username}, " %><%= memory.created_at.strftime("%B, %d, %Y") %> | <%= link_to memory.title, memory_path(memory, :anchor => "disqus_thread")%></h6>
+                <h6><%= "Posted by #{User.find(memory.user_id).username}, " %><%= memory.created_at.strftime("%B, %d, %Y") %>
+                    |
+                    <%= link_to memory.title, memory_path(memory, :anchor => "disqus_thread")%></h6>
             </div>
             <div class="panel-body">
                 <%= raw memory.body.truncate_words(250) %>
@@ -35,12 +38,13 @@
         </div>
         <% end %>
     </div>
-    <div id="infinite-scrolling">
+</div>
+<div id="infinite-scrolling">
+    <div id="scroll-up" style="display:none">
+        <%= will_paginate(@memories) %>
+    </div>
+    <div id="scroll-down" style="display:none">
         <%= will_paginate(@memories) %>
     </div>
 </div>
-<br>
-<script>
-window.DISQUSWIDGETS = undefined;
-$.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
-</script>
+<div id="page=<%=@memories.current_page%>"></div>

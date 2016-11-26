@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   mount Ckeditor::Engine => '/ckeditor'
   #mount ActionCable.server => 'ws://cable.harambes.me'
   #match "/cable", to: ActionCable.server, via: [:get, :post]
 
-  devise_for :users, :controllers => { :sessions => "users/sessions" }
+  devise_for :users
   root 'home#home'
   get 'pages/about'
   get 'pages/contact'

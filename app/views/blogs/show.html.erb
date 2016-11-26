@@ -1,3 +1,4 @@
+<% if current_user then @blog.mark_as_read! :for => current_user; end %>
 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 	<div class="panel">
 		<div class="panel-heading">
