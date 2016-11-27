@@ -4,15 +4,10 @@
 
 <div class="form-inputs" data-no-turbolink>
     <%= f.input :title %>
-    <%= f.input :body, input_html: { ckeditor: { toolbar: 'full' },name: 'blog_body' },id:'blog_body' %>
+    <%= f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'full' } } %>
 </div>
 
 <div class="form-actions">
     <%= f.button :submit %>
 </div>
 <% end %>
-
-<script>
-    // Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.
-    CKEDITOR.replace('blog_body');
-</script>
