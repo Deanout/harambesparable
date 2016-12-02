@@ -1,17 +1,19 @@
 <%= stylesheet_link_tag params[:controller] %>
 <div class="jumbotron col-lg-12 static-text">
     <div class="container-fluid">
-        <h1 class="col-lg-10 col-lg-offset-1" style="text-align:center;">Welcome To The Official Page For Harambe's Parable</h1>
+        <h1 class="col-lg-10 col-lg-offset-1" style="text-align:center;">The Harambe Parable</h1>
         <div class="col-lg-10 col-lg-offset-1">
-            <p style="text-align:justify">Austin gluten-free sustainable, jianbing whatever tacos etsy pickled kogi meggings raw denim man braid farm-to-table typewriter kale chips. Polaroid man braid offal, distillery ethical hoodie cronut mumblecore migas
-                meggings ugh kogi venmo waistcoat art party. Kale chips taxidermy street art narwhal, before they sold out artisan organic readymade bushwick etsy vaporware. Venmo swag trust fund kickstarter whatever austin air plant hella DIY disrupt. Artisan
-                meggings austin vinyl listicle farm-to-table. Vegan tofu meggings pickled iPhone knausgaard mustache, bespoke master cleanse leggings church-key ethical. Pinterest kombucha synth, humblebrag microdosing meh paleo.
-                <br><br>
-                1234 Poke quinoa brunch VHS jean shorts. Neutra meggings fam iceland af drinking vinegar. Lyft biodiesel photo booth forage, XOXO cred neutra. Meh godard bushwick craft beer migas, artisan pug paleo fam. Meditation meggings mlkshk 8-bit, sustainable
-                sartorial chia you probably haven't heard of them knausgaard. Mumblecore truffaut before they sold out retro tbh. Enamel pin copper mug keffiyeh, leggings wolf photo booth biodiesel bitters offal master cleanse freegan synth whatever.</p>
-            <br>
-            <%= link_to 'Learn More', pages_about_path, class: 'btn btn-primary btn-lg pull-left'%>
-            <%= link_to 'Blog', pages_about_path, class: 'btn btn-primary btn-lg pull-right'%>
+            <div class=container-fluid>
+                <div class="img img-responsive">
+                    <img src="https://i.ytimg.com/vi/oqupUsjbpdM/maxresdefault.jpg" style="max-width:100%">
+                </div>
+            </div>
+            <p style="text-align:justify"><br><br>
+                In loving memory of a friend Extending our condolences to family members of Harambe And extended family at the Cincinnati Zoo HP, Inc. is a company dedicated to preserving the memory of the 16-year-old Western Lowland Gorilla - Harambe - whose life
+                was cut short after an unfortunate incident at the Cincinnati Zoo.
+            </p>
+            <%= link_to 'Learn More', pages_about_path, class: 'btn btn-info btn-lg pull-left'%>
+            <%= link_to 'Blog', blogs_path, class: 'btn btn-info btn-lg pull-right'%>
         </div>
     </div>
 </div>

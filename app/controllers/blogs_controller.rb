@@ -11,21 +11,17 @@ class BlogsController < ApplicationController
       end
     end
   end
-
   # GET /blogs/1
   # GET /blogs/1.json
   def show
   end
-
   # GET /blogs/new
   def new
     @blog = Blog.new
   end
-
   # GET /blogs/1/edit
   def edit
   end
-
   # POST /blogs
   # POST /blogs.json
   def create
@@ -42,7 +38,6 @@ class BlogsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
@@ -56,7 +51,6 @@ class BlogsController < ApplicationController
       end
     end
   end
-
   # DELETE /blogs/1
   # DELETE /blogs/1.json
   def destroy
@@ -66,7 +60,6 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   def upvote
     @blog.upvote_by current_user
     redirect_to :back
@@ -75,7 +68,6 @@ class BlogsController < ApplicationController
       format.html
     end
   end
-
   def downvote
     @blog.downvote_by current_user
     redirect_to :back
@@ -84,7 +76,6 @@ class BlogsController < ApplicationController
       format.html
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
